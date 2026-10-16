@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO primary -->
+  <title>VoltFresh – Fructe proaspete, sucuri naturale, cafea și încărcare EV pe DN56</title>
+  <meta name="description" content="Pit stop pe DN56 între Moțăței și Galicea Mare. Fructe bio din livada noastră, sucuri naturale, cafenea, stație de încărcare EV și spălătorie auto ecologică." />
+  <meta name="keywords" content="VoltFresh, DN56, Moțăței, Galicea Mare, fructe bio, suc natural, livada bio, incarcare EV, spalatorie auto, cafenea Craiova Calafat" />
+  <link rel="canonical" href="https://voltfresh.ro/" />
+
+  <!-- Open Graph (Facebook/WhatsApp share) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="VoltFresh – Pit stop pe DN56" />
+  <meta property="og:description" content="Fructe proaspete, sucuri naturale, cafea, încărcare EV și spălătorie ecologică." />
+  <meta property="og:image" content="assets/poze/hero-magazin.jpg" />
+  <meta property="og:url" content="https://voltfresh.ro/" />
+  <meta property="og:locale" content="ro_RO" />
+
+  <!-- Favicon & touch icon (generat din logo-ul brandului) -->
+  <link rel="icon" href="assets/poze/logo-voltfresh.jpg" />
+  <link rel="apple-touch-icon" href="assets/poze/logo-voltfresh.jpg" />
+
+  <!-- Tailwind (dev) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            volt: {
+              green:  '#1E5B3A', // verde închis brand
+              green2: '#2E7D4F', // verde accent
+              orange: '#E87A2C', // portocaliu brand — DOAR decorativ (puncte, borduri, tinturi)
+              cream:  '#FAF6EF', // fundal cald
+              ink:    '#1A1A1A',
+              // Variante de portocaliu pentru contrast AA (WCAG 2.1), rapoarte verificate:
+              'orange-btn':      '#B85E14', // fundal buton + text alb      → 4.52:1 ✅
+              'orange-btn-dark': '#9C4C0F', // hover buton + text alb       → 6.08:1 ✅
+              'orange-light':    '#FFB37A', // text/iconițe pe verde închis → 4.59:1 ✅
+              'orange-ink':      '#A85410', // text pe cream/alb            → 4.95:1 ✅
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['"Poppins"', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org LocalBusiness — SEO local puternic -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "VoltFresh",
+    "description": "Livadă bio cu magazin propriu pe DN56: fructe proaspete, sucuri naturale, cafenea, stație de încărcare EV și spălătorie auto ecologică.",
+    "image": "https://voltfresh.ro/assets/poze/hero-magazin.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "DN56, Moțăței",
+      "addressLocality": "Moțăței",
+      "addressRegion": "Dolj",
+      "addressCountry": "RO"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 44.0790,
+      "longitude": 23.2385
+    },
+    "url": "https://voltfresh.ro/",
+    "telephone": "+40787340162",
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=100093800357683",
+      "https://www.instagram.com/livadabiocetate",
+      "https://www.tiktok.com/@plantatiebiocetate"
+    ],
+    "openingHours": "Mo-Su 00:00-23:59",
+    "priceRange": "$$"
+  }
+  </script>
+</head>
+
+<body class="bg-volt-cream text-volt-ink font-sans antialiased pb-20 md:pb-0">
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════ -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-volt-green/95 backdrop-blur text-white shadow-lg">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-5 py-4">
+      <a href="#" class="font-display font-extrabold text-2xl tracking-tight">
+        Volt<span class="text-volt-orange">Fresh</span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <li><a href="#fructe" class="hover:text-volt-orange-light transition">Fructe</a></li>
+        <li><a href="#sucuri" class="hover:text-volt-orange-light transition">Sucuri</a></li>
+        <li><a href="#cafenea" class="hover:text-volt-orange-light transition">Cafenea</a></li>
+        <li><a href="#ev" class="hover:text-volt-orange-light transition">EV & Spălătorie</a></li>
+        <li><a href="#locatie" class="hover:text-volt-orange-light transition">Locație</a></li>
+      </ul>
+
+      <a href="https://maps.app.goo.gl/45kjSRA6AoudTMQU7" target="_blank" rel="noopener"
+         class="hidden md:inline-block bg-volt-orange-btn hover:bg-volt-orange-btn-dark text-white px-5 py-2.5 rounded-full font-semibold text-sm transition">
+        Direcții →
+      </a>
+
+      <!-- Mobile menu button -->
+      <button id="menuBtn" type="button" class="md:hidden p-2" aria-label="Deschide meniul"
+              aria-expanded="false" aria-controls="mobileMenu">
+        <svg id="menuIconOpen" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="menuIconClose" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-volt-green border-t border-white/10">
+      <ul class="flex flex-col px-5 py-4 gap-4 text-base">
+        <li><a href="#fructe" class="block py-2">Fructe</a></li>
+        <li><a href="#sucuri" class="block py-2">Sucuri</a></li>
+        <li><a href="#cafenea" class="block py-2">Cafenea</a></li>
+        <li><a href="#ev" class="block py-2">EV & Spălătorie</a></li>
+        <li><a href="#locatie" class="block py-2">Locație</a></li>
+        <li>
+          <a href="https://maps.app.goo.gl/45kjSRA6AoudTMQU7" target="_blank" rel="noopener"
+             class="inline-block mt-2 bg-volt-orange-btn px-5 py-2.5 rounded-full font-semibold">
+            Direcții →
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       1. HERO
+  ═══════════════════════════════════════════ -->
+  <section class="relative pt-24 min-h-[92vh] flex items-center overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img src="assets/poze/hero-magazin.jpg" alt="Standul VoltFresh de pe marginea DN56: cort albastru, tarabe cu sticle de suc de caise și lăzi cu mere proaspete"
+           width="1448" height="1086" fetchpriority="high" decoding="async"
+           class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-r from-volt-green/90 via-volt-green/70 to-volt-green/30"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative max-w-7xl mx-auto px-5 py-20 text-white">
+      <span class="inline-block bg-volt-orange-btn text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-6">
+        Pit stop pe DN56 · Moțăței
+      </span>
+
+      <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] max-w-3xl mb-6">
+        Oprește-te pe DN56.<br>
+        <span class="text-volt-orange-light">Fructe proaspete</span>, suc natural, cafea și încărcare EV.
+      </h1>
+
+      <p class="text-lg sm:text-xl text-white/90 max-w-2xl mb-10 leading-relaxed">
+        Din livada noastră bio direct în paharul tău. Transformă pauza de pe Craiova – Calafat într-un moment de răsfăț.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="https://maps.app.goo.gl/45kjSRA6AoudTMQU7" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-volt-orange-btn hover:bg-volt-orange-btn-dark text-white px-7 py-4 rounded-full font-semibold text-base transition shadow-xl shadow-black/20">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+          Direcții pe hartă
+        </a>
+        <a href="#fructe"
+           class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur border border-white/30 text-white px-7 py-4 rounded-full font-semibold text-base transition">
+          Vezi ce găsești
+        </a>
+      </div>
+
+      <!-- Trust markers -->
+      <div class="mt-14 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/85">
+        <span class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-volt-orange-light" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+          Livadă bio certificată
+        </span>
+        <span class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-volt-orange-light" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+          Fără intermediari
+        </span>
+        <span class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-volt-orange-light" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+          120 kW EV · de la 1,5 RON/kWh
+        </span>
+        <span class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-volt-orange-light" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+          Parcare gratuită
+        </span>
+        <span class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-volt-orange-light" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Deschis nonstop
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       2. FRUCTE (secțiunea principală)
+  ═══════════════════════════════════════════ -->
+  <section id="fructe" class="py-20 sm:py-28 bg-volt-cream">
+    <div class="max-w-7xl mx-auto px-5">
+
+      <div class="max-w-2xl mb-14">
+        <span class="text-volt-orange-ink font-semibold text-sm uppercase tracking-wider">Din livada noastră</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 mb-4 text-volt-green">
+          Fructe culese azi, pe masa ta mâine
+        </h2>
+        <p class="text-lg text-gray-700 leading-relaxed">
+          Cultivăm cu răbdare pe cele 10 hectare ale noastre. Fără pesticide, fără grabă, fără intermediari.
+        </p>
+      </div>
+
+      <!-- Grid fructe -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+
+        <!-- Card fruct (repetat) -->
+        <article class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/poze/fructe-mere.jpg" alt="Mere Golden pe ram, în livada de pe DN56"
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-bold text-volt-green text-lg">Mere</h3>
+            <p class="text-sm text-gray-600 mt-1">5 soiuri, de la acrișor la dulce</p>
+          </div>
+        </article>
+
+        <article class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/poze/fructe-caise.jpg" alt="Caise coapte pe ram, în livada de la Moțăței"
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-bold text-volt-green text-lg">Caise</h3>
+            <p class="text-sm text-gray-600 mt-1">Parfumate, culese la maturitate</p>
+          </div>
+        </article>
+
+        <article class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/poze/fructe-piersici.jpg" alt="Lăzi cu piersici proaspete, culese din livadă"
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-bold text-volt-green text-lg">Piersici</h3>
+            <p class="text-sm text-gray-600 mt-1">Zemoase, direct din pom</p>
+          </div>
+        </article>
+
+        <article class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/poze/fructe-nectarine.jpg" alt="Lăzi cu nectarine proaspăt culese"
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-bold text-volt-green text-lg">Nectarine</h3>
+            <p class="text-sm text-gray-600 mt-1">Dulci și aromate</p>
+          </div>
+        </article>
+
+        <article class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 col-span-2 md:col-span-1">
+          <div class="aspect-square overflow-hidden">
+            <img src="assets/poze/fructe-struguri.jpg" alt="Ciorchini de struguri negri într-o ladă de lemn, în vie"
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-bold text-volt-green text-lg">Struguri</h3>
+            <p class="text-sm text-gray-600 mt-1">Albi și negri, de masă</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       3. SUCURI & NECTARE
+  ═══════════════════════════════════════════ -->
+  <section id="sucuri" class="py-20 sm:py-28 bg-volt-green text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-5 grid lg:grid-cols-2 gap-14 items-center relative">
+
+      <!-- Text -->
+      <div>
+        <span class="text-volt-orange-light font-semibold text-sm uppercase tracking-wider">Îmbuteliate la noi</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 mb-6 leading-tight">
+          Sucuri și nectare <span class="text-volt-orange-light">100% naturale</span>
+        </h2>
+        <p class="text-lg text-white/85 leading-relaxed mb-6">
+          Fructele noastre, presate la rece și îmbuteliate în sticlă. Fără zahăr adăugat, fără conservanți, fără compromisuri.
+        </p>
+
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-volt-orange-light shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+            <span>Nectar de caise, piersici, mere</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-volt-orange-light shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+            <span>Sticlă returnabilă — mai puțin plastic</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-volt-orange-light shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 111.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+            <span>Disponibile și la caserolă pentru drum</span>
+          </li>
+        </ul>
+
+        <a href="#locatie" class="inline-flex items-center gap-2 bg-volt-orange-btn hover:bg-volt-orange-btn-dark text-white px-7 py-4 rounded-full font-semibold transition">
+          Găsește magazinul
+        </a>
+      </div>
+
+      <!-- Imagine suc -->
+      <div class="relative">
+        <img src="assets/poze/suc-caise.jpg" alt="Sticlă de nectar de caise VoltFresh pe terasă, lângă o cafea, cu stația de încărcare EV și steagul brandului în fundal"
+             class="w-full rounded-3xl shadow-2xl" loading="lazy" />
+        <div class="absolute -bottom-4 -left-4 bg-volt-orange-btn text-white font-display font-bold px-5 py-3 rounded-2xl shadow-xl rotate-[-3deg]">
+          Din livadă direct în sticlă
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       4. CAFENEA
+  ═══════════════════════════════════════════ -->
+  <section id="cafenea" class="py-20 sm:py-28 bg-volt-cream">
+    <div class="max-w-7xl mx-auto px-5 grid lg:grid-cols-2 gap-14 items-center">
+
+      <div class="order-2 lg:order-1">
+        <img src="assets/poze/cafenea-latte.jpg" alt="Croissant proaspăt și ceai cald cu lămâie pe masa din interiorul cafenelei VoltFresh"
+             class="w-full rounded-3xl shadow-2xl" loading="lazy" />
+      </div>
+
+      <div class="order-1 lg:order-2">
+        <span class="text-volt-orange-ink font-semibold text-sm uppercase tracking-wider">Pauza ta</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 mb-6 text-volt-green leading-tight">
+          Cafea bună, croissant cald, <br class="hidden sm:block">15 minute de răsfăț
+        </h2>
+        <p class="text-lg text-gray-700 leading-relaxed mb-8">
+          Fie că ești pe drum spre Calafat sau doar treci prin zonă, avem locul perfect pentru o pauză scurtă și bună.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm">
+            <span class="text-2xl">☕</span>
+            <div>
+              <div class="font-semibold text-volt-green">Cafea de specialitate</div>
+              <div class="text-sm text-gray-600">Espresso, cappuccino, latte</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm">
+            <span class="text-2xl">🥐</span>
+            <div>
+              <div class="font-semibold text-volt-green">Patiserie proaspătă</div>
+              <div class="text-sm text-gray-600">Croissants, sandwich-uri calde</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm">
+            <span class="text-2xl">🪑</span>
+            <div>
+              <div class="font-semibold text-volt-green">Locuri pe terasă</div>
+              <div class="text-sm text-gray-600">Umbră și verdeață</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm">
+            <span class="text-2xl">🚻</span>
+            <div>
+              <div class="font-semibold text-volt-green">Toalete curate</div>
+              <div class="text-sm text-gray-600">Gratuit pentru clienți</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       5. EV & SPĂLĂTORIE
+  ═══════════════════════════════════════════ -->
+  <section id="ev" class="py-20 sm:py-28 bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-5">
+
+      <div class="max-w-2xl mb-14">
+        <span class="text-volt-orange-light font-semibold text-sm uppercase tracking-wider">Pentru drumul tău</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 mb-4 leading-tight">
+          Încarcă. Spală. Cafea din partea casei.
+        </h2>
+        <p class="text-lg text-white/75 leading-relaxed">
+          Singurul pit stop de pe DN56 care combină încărcarea electrică, spălătoria ecologică și o cafea bună.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Card EV -->
+        <div class="bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 rounded-3xl overflow-hidden hover:border-volt-orange/50 transition">
+          <img src="assets/poze/ev-statie.jpg"
+               alt="Stația de încărcare iHunt EV Charger de 120 kW, cu două porturi DC CCS2 și cabluri, montată la VoltFresh pe DN56"
+               width="1152" height="2048" loading="lazy" decoding="async"
+               class="w-full aspect-[4/3] object-cover object-top">
+          <div class="p-8">
+            <div class="w-14 h-14 rounded-2xl bg-volt-orange/20 flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-volt-orange-light" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-2xl mb-3">Stație încărcare EV</h3>
+            <p class="text-white/70 mb-6 leading-relaxed">
+              iHunt EV Charger, 120 kW Fast Charge, cu două porturi DC CCS2. Încarcă-ți mașina electrică în timp ce te bucuri de o cafea.
+            </p>
+            <ul class="space-y-2 text-sm text-white/80">
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-volt-orange-light mt-1.5 shrink-0"></span>
+                Putere: <span class="text-volt-orange-light font-semibold">120 kW Fast Charge</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-volt-orange-light mt-1.5 shrink-0"></span>
+                Conectori: <span class="text-volt-orange-light font-semibold">2× DC CCS2 (2 porturi simultan)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-volt-orange-light mt-1.5 shrink-0"></span>
+                Plată: <span class="text-volt-orange-light font-semibold">aplicație iHunt EV sau card RFID</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-volt-orange-light mt-1.5 shrink-0"></span>
+                Brand stație: <span class="text-volt-orange-light font-semibold">iHunt EV Charger</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-volt-orange-light mt-1.5 shrink-0"></span>
+                Tarif: <span class="text-volt-orange-light font-semibold">1,5 RON/kWh (zi) · 1,9 RON/kWh (noapte)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card Spălătorie -->
+        <div class="bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 rounded-3xl p-8 hover:border-volt-orange/50 transition">
+          <div class="w-14 h-14 rounded-2xl bg-volt-orange/20 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-volt-orange-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l1.5-4.5A2 2 0 018.4 7h7.2a2 2 0 011.9 1.5L19 13M5 13h14M5 13v5a1 1 0 001 1h1a1 1 0 001-1v-1h8v1a1 1 0 001 1h1a1 1 0 001-1v-5M7 16h.01M17 16h.01"/>
+            </svg>
+          </div>
+          <h3 class="font-display font-bold text-2xl mb-3">Spălătorie auto ecologică</h3>
+          <p class="text-white/70 mb-6 leading-relaxed">
+            Curățare profesională cu produse biodegradabile și consum redus de apă. Mașina ta curată, natura protejată.
+          </p>
+          <ul class="space-y-2 text-sm text-white/80">
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-volt-orange-light"></span>
+              Tip: <span class="text-volt-orange-light font-semibold">Selfwash</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-volt-orange-light"></span>
+              Produse 100% biodegradabile
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-volt-orange-light"></span>
+              Program: <span class="text-white font-semibold">Nonstop</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-10 text-center">
+        <p class="text-white/70 text-sm">
+          💡 <span class="font-semibold text-volt-orange-light">Bonus:</span> clienții care încarcă sau spală mașina primesc o cafea din partea casei.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       6. GALERIE
+  ═══════════════════════════════════════════ -->
+  <section class="py-20 sm:py-28 bg-volt-cream">
+    <div class="max-w-7xl mx-auto px-5">
+
+      <div class="text-center mb-14">
+        <span class="text-volt-orange-ink font-semibold text-sm uppercase tracking-wider">Din locație</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 text-volt-green">
+          VoltFresh în imagini
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <img src="assets/poze/livada-01.jpg" alt="Mere roșii pe ram, în livada de la Moțăței" class="w-full aspect-square object-cover rounded-2xl hover:scale-[1.02] transition duration-300" loading="lazy" />
+        <img src="assets/poze/livada-02.jpg" alt="Mere Fuji proaspăt culese, ținute în mână" class="w-full aspect-square object-cover rounded-2xl hover:scale-[1.02] transition duration-300" loading="lazy" />
+        <img src="assets/poze/livada-03.jpg" alt="Ciorchini de struguri albi în vie, pregătiți de cules" class="w-full aspect-square object-cover rounded-2xl hover:scale-[1.02] transition duration-300" loading="lazy" />
+        <img src="assets/poze/livada-04.jpg" alt="Standul Livada Bio Cetate la târgul GAL Fest Calafat" class="w-full aspect-square object-cover rounded-2xl hover:scale-[1.02] transition duration-300" loading="lazy" />
+        <img src="assets/poze/livada-05.jpg" alt="Lăzi cu piersici proaspete la cules, în livadă" class="w-full aspect-square object-cover rounded-2xl hover:scale-[1.02] transition duration-300" loading="lazy" />
+        <img src="assets/poze/livada-06.jpg" alt="Lăzi cu nectarine în curtea fermei" class="w-full aspect-square object-cover rounded-2xl hover:scale-[1.02] transition duration-300" loading="lazy" />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       7. LOCAȚIE & CONTACT
+  ═══════════════════════════════════════════ -->
+  <section id="locatie" class="py-20 sm:py-28 bg-volt-green text-white">
+    <div class="max-w-7xl mx-auto px-5">
+
+      <div class="text-center mb-14">
+        <span class="text-volt-orange-light font-semibold text-sm uppercase tracking-wider">Ne găsești aici</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-2 mb-4">
+          Pe DN56, între Moțăței și Galicea Mare
+        </h2>
+        <p class="text-lg text-white/80 max-w-2xl mx-auto">
+          Nu rata oprirea. Suntem chiar pe marginea drumului, cu parcare generoasă.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+
+        <!-- Hartă -->
+        <div class="rounded-3xl overflow-hidden shadow-2xl min-h-[400px]">
+          <iframe
+            src="https://www.google.com/maps?q=44.0790,23.2385&output=embed"
+            width="100%" height="100%" style="border:0; min-height:400px;"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Harta VoltFresh pe DN56">
+          </iframe>
+        </div>
+
+        <!-- Info contact -->
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-3xl p-8">
+
+          <div class="mb-6">
+            <div class="text-volt-orange-light font-semibold text-sm uppercase tracking-wider mb-2">Adresă</div>
+            <p class="text-lg">DN56, între Moțăței și Galicea Mare, Dolj</p>
+            <p class="text-white/75 text-sm mt-1">Plus code: 36HQ+JC</p>
+          </div>
+
+          <div class="mb-6">
+            <div class="text-volt-orange-light font-semibold text-sm uppercase tracking-wider mb-2">Program</div>
+            <p class="text-lg">Nonstop — deschis 24 de ore pe zi, 7 zile pe săptămână</p>
+          </div>
+
+          <div class="mb-6">
+            <div class="text-volt-orange-light font-semibold text-sm uppercase tracking-wider mb-2">Telefon &amp; WhatsApp</div>
+            <a href="tel:+40787340162" class="inline-flex items-center gap-2 text-lg font-semibold hover:text-volt-orange-light transition">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+              0787 340 162
+            </a>
+            <p class="text-sm text-white/75 mt-1">Sună sau scrie-ne pe WhatsApp — răspundem rapid.</p>
+          </div>
+
+          <div class="mb-8">
+            <div class="text-volt-orange-light font-semibold text-sm uppercase tracking-wider mb-3">Urmărește-ne</div>
+            <div class="flex gap-3">
+              <a href="https://www.facebook.com/profile.php?id=100093800357683" target="_blank" rel="noopener" aria-label="Facebook VoltFresh"
+                 class="w-11 h-11 rounded-full bg-white/10 hover:bg-volt-orange-btn flex items-center justify-center transition">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0022 12z"/></svg>
+              </a>
+              <a href="https://www.instagram.com/livadabiocetate" target="_blank" rel="noopener" aria-label="Instagram VoltFresh"
+                 class="w-11 h-11 rounded-full bg-white/10 hover:bg-volt-orange-btn flex items-center justify-center transition">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9a3.8 3.8 0 01-.9-1.4c-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.7.7-.8 1.2-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.7.7 1.2.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.7-.7.8-1.2.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.7-.7-1.2-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a5 5 0 110 10 5 5 0 010-10zm0 1.8a3.2 3.2 0 100 6.4 3.2 3.2 0 000-6.4zm5.2-2.3a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/></svg>
+              </a>
+              <a href="https://www.tiktok.com/@plantatiebiocetate" target="_blank" rel="noopener" aria-label="TikTok VoltFresh"
+                 class="w-11 h-11 rounded-full bg-white/10 hover:bg-volt-orange-btn flex items-center justify-center transition">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.6 6.7a5.3 5.3 0 01-3.5-1.3v7.5a5.7 5.7 0 11-5.7-5.7c.3 0 .6 0 .9.1v2.9a2.8 2.8 0 102 2.7V2h2.9a5.3 5.3 0 003.4 4.7z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-3 mb-3">
+            <a href="tel:+40787340162"
+               class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white px-5 py-3.5 rounded-full font-semibold transition">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+              Sună acum
+            </a>
+            <a href="https://wa.me/40787340162?text=Bun%C4%83%21%20A%C8%99%20vrea%20o%20informa%C8%9Bie%20despre%20VoltFresh." target="_blank" rel="noopener"
+               class="inline-flex items-center justify-center gap-2 bg-white text-[#075E54] hover:bg-volt-cream px-5 py-3.5 rounded-full font-semibold transition">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+
+          <a href="https://maps.app.goo.gl/45kjSRA6AoudTMQU7" target="_blank" rel="noopener"
+             class="w-full inline-flex items-center justify-center gap-2 bg-volt-orange-btn hover:bg-volt-orange-btn-dark text-white px-7 py-4 rounded-full font-semibold transition">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+            Deschide în Google Maps
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="bg-gray-950 text-white/70 py-10">
+    <div class="max-w-7xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+      <div class="font-display font-extrabold text-white text-xl">
+        Volt<span class="text-volt-orange">Fresh</span>
+      </div>
+      <p>© <span id="an"></span> VoltFresh · Livadă Bio Cetate. Toate drepturile rezervate.</p>
+      <p>Făcut cu 🍎 pe DN56</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       STICKY CTA MOBILE
+  ═══════════════════════════════════════════ -->
+  <a href="https://maps.app.goo.gl/45kjSRA6AoudTMQU7" target="_blank" rel="noopener"
+     class="md:hidden fixed bottom-4 left-4 right-4 z-40 bg-volt-orange-btn text-white text-center py-4 rounded-full font-bold shadow-2xl shadow-black/30 flex items-center justify-center gap-2">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
+    Direcții pe hartă
+  </a>
+
+  <!-- ═══════════════════════════════════════════
+       SCRIPT MIC
+  ═══════════════════════════════════════════ -->
+  <script>
+    // An curent în footer
+    document.getElementById('an').textContent = new Date().getFullYear();
+
+    // Toggle mobile menu
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    const iconOpen = document.getElementById('menuIconOpen');
+    const iconClose = document.getElementById('menuIconClose');
+
+    // Stare unică pentru meniu: vizibilitate + aria-expanded + iconiță
+    function setMenu(open) {
+      menu.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Închide meniul' : 'Deschide meniul');
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+    }
+
+    btn.addEventListener('click', () => setMenu(menu.classList.contains('hidden')));
+
+    // Închide meniul la click pe link
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
+    // Închide meniul cu Escape (navigare la tastatură)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menu.classList.contains('hidden')) setMenu(false);
+    });
+  </script>
+
+</body>
+</html>
+
+
